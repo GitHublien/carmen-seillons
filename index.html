@@ -1011,7 +1011,8 @@
   function blocSchemas(note) {
     const liste = SCHEMAS_IMG[note];
     if (!liste) return '';
-    return liste.map(id => `<img class="schema-img" src="schemas/schema-${id}.jpg" alt="Schéma ${id}" loading="lazy" onerror="this.remove()">`).join('');
+    return liste.map(id => `<img class="schema-img" src="schemas/schema-${id}.jpg" alt="Schéma ${id}" loading="lazy" onerror="this.remove()">`).join('')
+      + `<div style="text-align:center; color:#8a8aa0; font-size:0.78rem; margin:-6px 0 10px;">proportions élargies pour la lisibilité — les vraies proportions sont sur la <a href="technique.html" style="color:#8a8aa0;">fiche technique</a></div>`;
   }
 
   // ================== CONSTRUCTION DE LA PAGE ==================
