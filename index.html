@@ -287,6 +287,7 @@
   .audio-bloc.audio-nar { border-color: #39ff14 !important; background: #0e1a0e !important; box-shadow: 0 0 10px rgba(57,255,20,0.4); }
   .audio-bloc.audio-nar .audio-titre { color: #39ff14 !important; }
   .schema-img { width: 100%; display: block; border-radius: 12px; border: 2px solid #00e5ff; box-shadow: 0 0 12px rgba(0,229,255,0.3); margin: 12px 0; }
+  .nar-alerte { background: #f7ff00; color: #000; font-weight: bold; border-radius: 10px; padding: 10px 12px; margin: 10px 0; font-size: 1.05rem; box-shadow: 0 0 16px rgba(247,255,0,0.65); }
   footer { color: #9a9ab0 !important; }
 </style>
 </head>
@@ -992,6 +993,18 @@
         <audio controls preload="none" src="${a.src}"></audio>
       </div>`).join('');
   }
+  // Ce qui se JOUE pendant chaque narration (jeu rapide — affiché en fluo sur les cartes du narrateur)
+  const NAR_PENDANT = {
+    nar1: `José ramène Carmen du public et la fait remonter — la narration est la bande-son de l'action`,
+    nar2: `TOUT VA VITE : Zuniga attache José et l'emmène à cour — ils doivent être SORTIS avant « Deux mois plus tard »`,
+    nar3: `tous partent à jardin, très heureux — les cris « Escamillo ! » arrivent juste après`,
+    nar4: `tous sortent sauf Carmen — elle récupère LA CHAISE et la met au milieu`,
+    nar5: `LE PLUS RAPIDE DU SPECTACLE : Carmen re-rentre avec Zuniga collé à elle, José surgit, LA NAVAJA — tout se joue sur ces 12 secondes, avant « La guerre, c'est la guerre »`,
+    nar6: `le baiser refusé — LA MAIN DEVANT — José part guetter, les deux filles filent à cour`,
+    nar7: `les trois sortent à jardin — et MICAËLA entre pile quand le narrateur dit son nom`,
+    nar8: `Micaëla est déjà cachée — Escamillo entre juste après, le chapeau à la main`
+  };
+
   // Sur les cartes personnelles : la narration d'avant et celle d'après entourent la musique du moment
   const NAR_AVANT = { n10: 'nar1', n12: 'nar2', n14: 'nar3', n17: 'nar4', n18: 'nar5', n20: 'nar6', n22: 'nar7', n23: 'nar8' };
   const NAR_APRES = { n8: 'nar1', n10: 'nar2', n12: 'nar3', n14: 'nar4', n17: 'nar5', n19: 'nar6', n20: 'nar7', n22: 'nar8' };
@@ -1039,7 +1052,8 @@
         <div class="carte-narrateur" data-persos="narrateur">
           <img src="avatar-narrateur.jpg" onerror="this.remove()">
           <div><div class="micro">🎙️ NARRATEUR — ${s.apres}</div>
-          <blockquote>« ${s.texte} »</blockquote>${blocAudio(s.note)}</div>
+          <blockquote>« ${s.texte} »</blockquote>
+          ${NAR_PENDANT[s.note] ? `<div class="nar-alerte">⚡ JEU RAPIDE PENDANT LE TEXTE : ${NAR_PENDANT[s.note]}</div>` : ''}${blocAudio(s.note)}</div>
         </div>`;
     } else if (s.type === 'scene') {
       const jetons = (s.jetons || []).map(j => `<span class="jeton ${j[0]}">${j[1]}</span>`).join('');
