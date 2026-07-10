@@ -285,6 +285,7 @@
   .audio-bloc .audio-titre { color: #ffd60a !important; }
   .audio-bloc.audio-nar { border-color: #39ff14 !important; background: #0e1a0e !important; box-shadow: 0 0 10px rgba(57,255,20,0.4); }
   .audio-bloc.audio-nar .audio-titre { color: #39ff14 !important; }
+  .schema-img { width: 100%; display: block; border-radius: 12px; border: 2px solid #00e5ff; box-shadow: 0 0 12px rgba(0,229,255,0.3); margin: 12px 0; }
   footer { color: #9a9ab0 !important; }
 </style>
 </head>
@@ -997,8 +998,19 @@
     return blocAudio(NAR_AVANT[note]) + blocAudio(note) + blocAudio(NAR_APRES[note]);
   }
 
-  // SEILLONS : pas de schémas (ils dessinaient la géométrie de Rognes) — les directions se lisent dans les jetons colorés
+  // SEILLONS : les anciens schémas SVG (géométrie de Rognes) sont remplacés par les schémas NanoBanana du nouveau plateau
   Object.keys(PLANS).forEach(k => delete PLANS[k]);
+  const SCHEMAS_IMG = {
+    n1: ['n1'], n5: ['n5'], n6: ['n6'], n6bis: ['n6bis'], n8: ['n8'], n10: ['n10'],
+    n12: ['n12'], n14: ['n14', 'n14fin'], n17: ['n17'],
+    n18: ['n18', 'n18b', 'n18fin'], n19: ['n19', 'n19fin'], n20: ['n20'],
+    n22: ['n22'], n23: ['n23', 'n23b'], n24: ['n24'], n26: ['n26'], n27: ['n27']
+  };
+  function blocSchemas(note) {
+    const liste = SCHEMAS_IMG[note];
+    if (!liste) return '';
+    return liste.map(id => `<img class="schema-img" src="schemas/schema-${id}.jpg" alt="Schéma ${id}" loading="lazy" onerror="this.remove()">`).join('');
+  }
 
   // ================== CONSTRUCTION DE LA PAGE ==================
   function avatarsDe(persos, taille) {
@@ -1044,7 +1056,7 @@
           <div class="quand">⚡ QUAND : ${s.quand}</div>
           <div class="jetons">${jetons}</div>
           <div class="action">${s.action}</div>
-          ${jeu}${fin}${plan}${plan2}${coupure}${blocAudio(s.note)}
+          ${jeu}${fin}${plan}${plan2}${coupure}${blocSchemas(s.note)}${blocAudio(s.note)}
           <div class="notes" contenteditable="true" data-note="${s.note}"></div>
         </div>`;
     }
@@ -1142,7 +1154,7 @@
         `<div class="plan-scene" style="padding:6px 8px 2px; background:#fdf9ee;"><svg viewBox="0 25 400 240" xmlns="http://www.w3.org/2000/svg">${basePlan()}${PLANS[id].map(fleche).join('')}</svg></div>`
       ).join('');
       const noteCarte = (DETAILS_FEUILLE[roleCourant] || [])[carteIndex];
-      const audioCarte = audioDeCarte(noteCarte);
+      const audioCarte = blocSchemas(noteCarte) + audioDeCarte(noteCarte);
       corps = `
         <div class="carte-moment" style="border-color:${p.couleur}">
           <div class="cm-titre" style="background:${p.couleur}">🎵 ${r[0]}</div>

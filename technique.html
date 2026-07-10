@@ -63,6 +63,9 @@
     <b>LE PRINCIPE EN 30 SECONDES.</b> Carmen racontée par un <b>narrateur</b> (8 interventions parlées, toujours collées à la musique) et jouée par <b>7 solistes</b> qui évoluent <b>DEVANT l'orchestre, en front de scène</b> (la rangée de micros du dispositif). Le chœur est au fond. Les solistes entrent et sortent <b>par les coulisses, à cour et à jardin</b> — et certains trajets sont prévus <b>dans le public</b> si l'accès existe (à décider ensemble aux balances).
   </div>
 
+  <img src="schemas/schema-dispositif.jpg" alt="Le dispositif scénique" style="width:100%; display:block; border-radius:12px; border:2px solid #00e5ff; box-shadow:0 0 12px rgba(0,229,255,0.3); margin:14px 0;" onerror="this.remove()">
+  <div style="text-align:center; color:#9a9ab0; font-size:0.9rem; margin:-6px 0 10px;">Le code des schémas de toute la conduite : flèche pleine = entrée · pointillés = sortie · une couleur par personnage</div>
+
   <h2>1 · Les voix à sonoriser</h2>
   <table>
     <tr><th>Qui</th><th>Voix</th><th>Présence</th><th>À savoir</th></tr>
@@ -115,7 +118,71 @@
     <tr><td><b>N°27</b> Le final</td><td class="qui">Carmen, José</td><td class="mvt">Les deux seuls, montée dramatique — la fin se joue au corps à corps (étranglement) · dernière phrase de José · puis LES SALUTS</td></tr>
   </table>
 
-  <h2>3 · Les 5 points d'attention son</h2>
+  <h2>3 · Les musiques — enregistrement du concert (Carry-le-Rouet)</h2>
+  <div class="cadre c-jaune">
+    🎧 <b>Tout le spectacle, morceau par morceau</b> — pour préparer les niveaux et repérer les enchaînements. Les pistes <span style="color:#39ff14; font-weight:bold;">vertes 🎙</span> sont les narrations parlées. <b>Un seul lecteur joue à la fois.</b>
+  </div>
+  <div id="lecteurs"></div>
+  <script>
+    const PISTES = [
+      ['ACTE 1'],
+      ['Prélude (orchestre)', '01-prelude.mp3'],
+      ['N°1 — Moralès « Sur la place, chacun passe »', '02-n1-morales.mp3'],
+      ['N°3 — La garde montante (les enfants)', '03-n3-enfants.mp3'],
+      ['N°4 — Les hommes et les cigarières', '04-n4-hommes-cigarieres.mp3'],
+      ['N°5 — L\'entrée de Carmen (récitatif et chœur)', '05-n5-entree-carmen.mp3'],
+      ['N°5 — Habanera', '06-n5-habanera.mp3'],
+      ['N°6 — « Carmen ! sur tes pas » + la rose', '07-n6-la-rose.mp3'],
+      ['N°6bis — José seul, puis Micaëla (répliques parlées)', '08-n6bis-jose-micaela.mp3'],
+      ['N°7 — Duo « Parle-moi de ma mère »', '09-n7-duo-mere.mp3'],
+      ['N°8 — L\'arrestation', '10-n8-arrestation.mp3'],
+      ['🎙 1ʳᵉ narration — Carmen conduite en prison', '10b-narration-1.mp3', 1],
+      ['N°10 — Séguedille (applaudissements inclus)', '11-n10-seguedille.mp3'],
+      ['🎙 2ᵉ narration — José laisse échapper + Deux mois plus tard', '11b-narration-2.mp3', 1],
+      ['Orchestre seul (scène vide)', '12-orchestre-seul.mp3'],
+      ['ACTE 2'],
+      ['N°12 — Chanson bohème', '13-n12-chanson-boheme.mp3'],
+      ['🎙 3ᵉ narration — On acclame Escamillo', '13b-narration-3.mp3', 1],
+      ['N°14 — L\'air du Toréador', '14-n14-toreador.mp3'],
+      ['🎙 4ᵉ narration — Don José sort de prison', '14b-narration-4.mp3', 1],
+      ['N°17 — Début du duo « Je vais danser » + la Retraite', '15-n17-debut-duo.mp3'],
+      ['N°17 — L\'air de la Fleur (applaudissements à la fin)', '15b-n17-air-de-la-fleur.mp3'],
+      ['N°17 fin — « Là-bas dans la montagne »', '16-n17-fin-montagne.mp3'],
+      ['🎙 5ᵉ narration — Survient le capitaine Zuniga', '16b-narration-5.mp3', 1],
+      ['N°18 — Final de l\'acte 2 (la désertion)', '17-n18-final-acte2.mp3'],
+      ['ACTE 3 (après l\'ENTRACTE)'],
+      ['Acte 3 — Orchestre (scène vide)', '18-acte3-orchestre.mp3'],
+      ['N°19 — Le retour des contrebandiers', '19-n19-contrebandiers.mp3'],
+      ['🎙 6ᵉ narration — Les contrebandiers s\'éloignent', '19b-narration-6.mp3', 1],
+      ['N°20 — Le trio des cartes', '20-n20-cartes.mp3'],
+      ['🎙 7ᵉ narration — Le jour se lève (entrée de Micaëla)', '20b-narration-7.mp3', 1],
+      ['N°22 — L\'air de Micaëla (applaudissements inclus)', '21-n22-micaela.mp3'],
+      ['🎙 8ᵉ narration — Don José tire (le chapeau)', '21b-narration-8.mp3', 1],
+      ['N°23 — Le duel Escamillo-José', '22-n23-duel.mp3'],
+      ['N°24 — Final de l\'acte 3', '23-n24-final-acte3.mp3']
+    ];
+    const BASE_AUDIO = 'https://githublien.github.io/carmen-rognes/audio/';
+    document.getElementById('lecteurs').innerHTML = PISTES.map(p => {
+      if (p.length === 1) return `<h2 style="font-size:1.1rem; margin:18px 0 6px;">${p[0]}</h2>`;
+      const vert = p[2] ? 'border-color:#39ff14; box-shadow:0 0 10px rgba(57,255,20,0.4);' : 'border-color:#ffd60a;';
+      const coul = p[2] ? '#39ff14' : '#ffd60a';
+      return `<div class="cadre" style="border:2px solid; ${vert} padding:10px 12px; margin:8px 0;">
+        <div style="color:${coul}; font-weight:bold; margin-bottom:6px;">${p[0]}</div>
+        <audio controls preload="none" src="${BASE_AUDIO}${p[1]}" style="width:100%; height:44px;"></audio>
+      </div>`;
+    }).join('');
+    document.addEventListener('play', e => {
+      if (e.target && e.target.tagName === 'AUDIO') {
+        document.querySelectorAll('audio').forEach(a => { if (a !== e.target) a.pause(); });
+      }
+    }, true);
+  </script>
+
+  <div class="cadre c-rose" style="text-align:center;">
+    🎭 <b><a href="index.html">LA CONDUITE COMPLÈTE DES ARTISTES → ici</a></b> — carte par carte, avec les entrées/sorties de chacun et les mêmes musiques.
+  </div>
+
+  <h2>4 · Les 5 points d'attention son</h2>
   <div class="cadre c-orange">
     <ul>
       <li><span class="pastille p-jaune">1</span> <b>Le narrateur enchaîne à la seconde</b> — souvent pile après le dernier accord ou les applaudissements : son micro doit être ouvert en permanence ou anticipé.</li>
@@ -126,7 +193,7 @@
     </ul>
   </div>
 
-  <h2>4 · Lumières — des idées, pas des consignes</h2>
+  <h2>5 · Lumières — des idées, pas des consignes</h2>
   <div class="cadre c-cyan">
     <b>La conduite lumière appartient entièrement à l'équipe technique</b> — ce qui suit n'est qu'une palette d'ambiances suggérée par la mise en scène, à adapter ou ignorer librement :
     <ul>
@@ -138,7 +205,7 @@
     </ul>
   </div>
 
-  <h2>5 · Pratique</h2>
+  <h2>6 · Pratique</h2>
   <div class="cadre c-jaune">
     <b>Planning :</b> 18h00–18h45 installation plateau · 18h45–19h00 musiciens · <b>19h00–20h00 balances tutti</b> · 20h00–20h45 repas (offert par la municipalité) · <b>21h00 précises : concert</b><br>
     <b>Scène :</b> profondeur 8 m · chœur au fond · orchestre au milieu · solistes + narrateur en front de scène<br>
