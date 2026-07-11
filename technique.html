@@ -40,6 +40,7 @@
     th, td { font-size: 0.88rem; padding: 6px 5px; }
   }
   @media print {
+    #lecteurs, .audio-bloc, audio, #titre-musiques, #cadre-musiques { display: none !important; }
     html, body { background: #fff; color: #000; }
     .cadre, td { background: #fff; color: #000; box-shadow: none; }
     tr.narration td { background: #eaffea; color: #000; }
@@ -121,8 +122,8 @@
     <tr><td><b>N°27</b> Le final</td><td class="qui">Carmen, José</td><td class="mvt">Les deux seuls, montée dramatique — la fin se joue au corps à corps (étranglement) · dernière phrase de José · puis LES SALUTS</td></tr>
   </table>
 
-  <h2>3 · Les musiques — enregistrement du concert (Carry-le-Rouet)</h2>
-  <div class="cadre c-jaune">
+  <h2 id="titre-musiques">3 · Les musiques — enregistrement du concert (Carry-le-Rouet)</h2>
+  <div class="cadre c-jaune" id="cadre-musiques">
     🎧 <b>Tout le spectacle, morceau par morceau</b> — pour préparer les niveaux et repérer les enchaînements. Les pistes <span style="color:#39ff14; font-weight:bold;">vertes 🎙</span> sont les narrations parlées. <b>Un seul lecteur joue à la fois.</b>
   </div>
   <div id="lecteurs"></div>
