@@ -1282,6 +1282,11 @@
     }
   }, true);
 
+  // ================== HORS-LIGNE : la page reste utilisable sans Internet après une 1re visite ==================
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  }
+
   // ================== LIEN DIRECT PAR PERSONNE (ex. …/#carmen) ==================
   const hash = location.hash.replace('#', '');
   if (PERSOS[hash] && hash !== 'narrateur') choisir(hash);
