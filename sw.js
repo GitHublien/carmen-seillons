@@ -1,17 +1,9 @@
-// Service worker Carmen Seillons — la page fonctionne SANS INTERNET après une première visite
-const CACHE = 'carmen-seillons-v1';
+// Service worker Carmen Seillons — pages à jour quand en ligne, fonctionne hors-ligne après une visite
+const CACHE = 'carmen-seillons-v2';
 const COEUR = [
   './', 'index.html', 'technique.html',
   'avatar-carmen.jpg', 'avatar-jose.jpg', 'avatar-micaela.jpg', 'avatar-escamillo.jpg',
-  'avatar-zuniga.jpg', 'avatar-frasquita.jpg', 'avatar-mercedes.jpg', 'avatar-narrateur.jpg',
-  'schemas/schema-dispositif.jpg', 'schemas/schema-n1.jpg', 'schemas/schema-n5.jpg',
-  'schemas/schema-n6.jpg', 'schemas/schema-n6bis.jpg', 'schemas/schema-n8.jpg',
-  'schemas/schema-n10.jpg', 'schemas/schema-n12.jpg', 'schemas/schema-n14.jpg',
-  'schemas/schema-n14fin.jpg', 'schemas/schema-n17.jpg', 'schemas/schema-n18.jpg',
-  'schemas/schema-n18b.jpg', 'schemas/schema-n18fin.jpg', 'schemas/schema-n19.jpg',
-  'schemas/schema-n19fin.jpg', 'schemas/schema-n20.jpg', 'schemas/schema-n22.jpg',
-  'schemas/schema-n23.jpg', 'schemas/schema-n23b.jpg', 'schemas/schema-n24.jpg',
-  'schemas/schema-n26.jpg', 'schemas/schema-n27.jpg'
+  'avatar-zuniga.jpg', 'avatar-frasquita.jpg', 'avatar-mercedes.jpg', 'avatar-narrateur.jpg'
 ];
 
 self.addEventListener('install', e => {
@@ -26,13 +18,26 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
-  // Les musiques (autre domaine + .mp3) : réseau uniquement, jamais en cache
   if (url.pathname.endsWith('.mp3') || url.origin !== self.location.origin) return;
-  e.respondWith(
-    caches.match(e.request, { ignoreSearch: true }).then(rep => rep || fetch(e.request).then(r => {
-      const copie = r.clone();
-      caches.open(CACHE).then(c => c.put(e.request, copie));
-      return r;
-    }))
-  );
+
+  const estPage = e.request.mode === 'navigate' || url.pathname.endsWith('.html') || url.pathname.endsWith('/');
+  if (estPage) {
+    // PAGES : réseau d'abord (toujours la dernière version) → cache si hors-ligne
+    e.respondWith(
+      fetch(e.request).then(r => {
+        const copie = r.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copie));
+        return r;
+      }).catch(() => caches.match(e.request, { ignoreSearch: true }))
+    );
+  } else {
+    // IMAGES/SCHÉMAS : cache d'abord (rapide) → réseau sinon
+    e.respondWith(
+      caches.match(e.request, { ignoreSearch: true }).then(rep => rep || fetch(e.request).then(r => {
+        const copie = r.clone();
+        caches.open(CACHE).then(c => c.put(e.request, copie));
+        return r;
+      }))
+    );
+  }
 });
