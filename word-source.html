@@ -304,6 +304,25 @@
   }
   footer { color: #9a9ab0 !important; }
 </style>
+<style>
+@media print {
+  html, body { background: #ffffff !important; color: #000 !important; }
+  .carte-scene, .carte-info, .carte-moment, .cadre-fluo, details.bloc { background: #fff !important; color: #000 !important; box-shadow: none !important; }
+  .carte-narrateur { background: #eefbee !important; color: #000 !important; box-shadow: none !important; }
+  .carte-narrateur blockquote { color: #073807 !important; }
+  .jeu { background: #f4f6ff !important; }
+  .jeu li, .action, .fin-scene, .plan-txt, .infos { color: #000 !important; }
+  .fin-scene { background: #fff0f5 !important; }
+  header h1 { color: #b8860b !important; text-shadow: none !important; }
+  h2, .qui-es-tu h2 { color: #0a6e8a !important; text-shadow: none !important; }
+  .acte, .quand, .nar-alerte { box-shadow: none !important; }
+  .notes, #barre-choix { display: none !important; }
+  .visage { background: #fff !important; color: #000 !important; }
+  .qui-es-tu p, .legende-dir { color: #333 !important; }
+  footer { color: #555 !important; }
+  main a { color: #0a6e8a !important; }
+}
+</style>
 </head>
 <body>
 
@@ -322,7 +341,7 @@
 <main>
 
   <div class="cadre-fluo cadre-vert">
-    ✅ <b>MÊME MISE EN SCÈNE QU'À ROGNES — NOUVEAU PLATEAU.</b> Cette fois : les solistes et le narrateur sont <b>DEVANT L'ORCHESTRE</b> (<b>4 micro-casques + 2 micro-cravates</b>), le chœur au fond — et il y a de <b>VRAIES COULISSES à cour ET à jardin</b>. Musiques et narrations de Carry sur chaque carte.
+    ✅ <b>MÊME MISE EN SCÈNE QU'À ROGNES — NOUVEAU PLATEAU.</b> Cette fois : les solistes et le narrateur sont <b>DEVANT L'ORCHESTRE</b> (avec <b>7 micro-casques</b>), le chœur au fond — et il y a de <b>VRAIES COULISSES à cour ET à jardin</b>. Musiques et narrations de Carry sur chaque carte.
   </div>
 
   <div class="cadre-fluo cadre-rose" style="text-align:center;">
@@ -342,13 +361,10 @@
     <span class="jeton cour">COUR = droite du public ➡</span>
   </div>
   <div class="cadre-fluo cadre-jaune">
-    🚪 <b>LA RÈGLE D'OR À SEILLONS</b> — <b>chaque côté est un monde fermé.</b> Nos coulisses = <b>DEUX PARAVENTS</b>, un à COUR et un à JARDIN (avec chaises, tables et accessoires, comme la dernière fois).<br>
-    ➡️ <b>Tu ressors TOUJOURS du côté où tu es entré.</b> On ne peut PAS passer derrière la scène, PAS faire le tour, PAS traverser de jardin à cour en coulisse. Côté jardin → tu restes jardin. Côté cour → tu restes cour.<br>
-    ✅ Traverser le plateau <b>À VUE</b> (devant, entre les personnages) reste permis — c'est seulement passer <b>DERRIÈRE</b> qui est interdit.<br>
-    🪜 <b>PAS D'ESCALIER</b> : le plateau est une <b>estrade BASSE</b> — on y monte d'un seul pas (là où c'est « escalier » dans les vieux textes, comprends « on monte/descend d'un pas sur l'estrade »).
+    🚪 <b>À SEILLONS, ÇA CHANGE : il y a de VRAIES sorties à JARDIN et à COUR.</b> « Sortir à jardin » = vraiment sortir à jardin. Les anciens « tours derrière les chœurs » = sortir d'un côté, passer <b>derrière la scène</b>, re-rentrer de l'autre.
   </div>
   <div class="cadre-fluo cadre-orange">
-    ⚠️ <b>À CONFIRMER AUX BALANCES</b> : sommes-nous <b>à vue</b> ou cachés derrière les paravents ? Y a-t-il un <b>accès au public</b> ? Ce qui mentionne « le public » (la fuite de Carmen, l'arrestation) en dépend — <b>si pas d'accès, ça se joue en bord de plateau côté cour</b>, le jeu reste le même.
+    ⚠️ <b>À CONFIRMER AUX BALANCES</b> : sommes-nous <b>à vue</b> ou cachés ? Y a-t-il un <b>accès au public</b> ? Tout ce qui mentionne « l'escalier » ou « le public » (la fuite de Carmen, l'arrestation dans le public, la sortie en riant de l'acte 2) en dépend — <b>si pas d'accès, ces trajets se font par les coulisses</b>, le jeu reste le même.
   </div>
 
   <div id="contenu"></div>
@@ -379,10 +395,10 @@
 
   <details class="bloc">
     <summary>✅ À vérifier sur place aux balances</summary>
-    <div class="plan-txt">1. <strong>Les 2 paravents</strong> (nos coulisses cour + jardin) : bien placés, avec chaises + tables pour les accessoires ?</div>
-    <div class="plan-txt">2. <strong>Accès au public ?</strong> La fuite de Carmen (N°6) et l'arrestation (N°8) en dépendent — sinon ça se joue en bord de plateau côté cour</div>
-    <div class="plan-txt">3. <strong>Confirmé : PAS de passage derrière la scène</strong> — on reste de son côté (règle d'or ci-dessus)</div>
-    <div class="plan-txt">4. <strong>Les micros</strong> : 4 casques + 2 cravates (6 pour 7 rôles) — qui porte quoi, qui partage ? Les cravates aux chanteurs qui gardent leur micro tout le spectacle (à caler avec Rudy)</div>
+    <div class="plan-txt">1. <strong>À vue ou pas ?</strong> Où attendent les solistes entre leurs numéros — coulisses, côtés, chaises à vue ?</div>
+    <div class="plan-txt">2. <strong>Accès au public ?</strong> La fuite de Carmen (N°6), l'arrestation dans le public (N°8) et la sortie en riant (fin d'acte 2) en dépendent — sinon tout passe par les coulisses</div>
+    <div class="plan-txt">3. <strong>Le passage derrière la scène</strong> jardin ⟷ cour : combien de temps pour faire le tour ?</div>
+    <div class="plan-txt">4. <strong>Les micros</strong> : combien en front de scène, lesquels pour qui, et la voix d'Escamillo « au loin » du N°24 (micro en coulisses côté jardin ?)</div>
     <div class="plan-txt">5. <strong>La chaise solide</strong> (Escamillo monte dessus au N°14) : à tester</div>
     <div class="plan-txt">6. <strong>La lumière</strong> : suggestions d'ambiances sur la fiche technique — la décision revient aux techniciens</div>
   </details>
@@ -444,7 +460,7 @@
 
     { type: 'scene', num: 'N°6 — Scène : LA ROSE 🌹', persos: ['carmen', 'jose'],
       quand: `Les jeunes gens chantent « Carmen ! sur tes pas, nous nous pressons tous !… sois gentille, au moins réponds-nous ! » — le jet arrive sur L'ACCORD SEC écrit dans la partition (à caler à la balance)`,
-      jetons: [['cour', '⚡ APRÈS LE JET : CARMEN descend d\'un pas de l\'estrade et part DANS LE PUBLIC (si accès) — presque en courant — sinon elle file à son paravent JARDIN']],
+      jetons: [['escalier', '🪜 APRÈS LE JET : CARMEN descend PAR L\'ESCALIER et part DANS LE PUBLIC — presque en courant, très contente d\'elle — jusqu\'à sa cachette (à repérer demain)']],
       action: `Le moment le plus célèbre de l'acte : <b>Carmen</b> choisit <b>Don José</b>. IMPORTANT : José est <b>AU MILIEU du plateau</b> — la scène ne doit surtout pas se jouer à cour.`,
       jeu: [`Pendant la musique : elle regarde les hommes qui la supplient… et <b>ôte délicatement la rose de ses cheveux</b>`,
             `Elle fait mine de choisir parmi eux — et <b>se rapproche dangereusement de Don José</b>`,
@@ -452,7 +468,7 @@
             `🪄 <b>L'ENVOÛTEMENT (José)</b> : comme si un SORT venait d'être lancé — surpris, il la regarde… et d'un seul coup il la regarde <b>différemment</b>. L'orchestre joue à cet instant le motif du destin : le sort est écrit dans la musique, il suffit de le jouer`,
             `⚠️ <b>LA ROSE DOIT RESTER SUR SCÈNE</b> (tout le jeu d'après en dépend — et l'acte 2 aussi !) : jet court, vers la poitrine, José au centre loin du bord de la plateforme — jamais vers la fosse`,
             `🌹 ACCESSOIRE : une VRAIE rose dans les cheveux (en acheter DEUX — une de secours !) + la barrette actuelle en plan B`,
-            `🅱️ SI LE PUBLIC EST IMPOSSIBLE : elle disparaît simplement <b>côté JARDIN, derrière SON paravent</b> (son côté). Le jeu ne change pas, seule la géographie rétrécit — et elle re-rentrera de jardin`],
+            `🅱️ SI LE PUBLIC EST IMPOSSIBLE (lumière, passage…) : repli 1 — elle s'enfuit par l'escalier et se cache EN BAS, côté cour (zone des loges / cache d'Yves). Repli 2 — elle disparaît côté jardin DERRIÈRE les chœurs. Le jeu ne change pas, seule la géographie rétrécit`],
       plan: 'n6', note: 'n6' },
 
     { type: 'scene', num: 'N°6 bis — Récit : la fleur, puis Micaëla', persos: ['jose', 'micaela'],
@@ -467,7 +483,7 @@
 
     { type: 'scene', num: 'N°7 — Duo « Parle-moi de ma mère »', persos: ['jose', 'micaela'],
       quand: `Enchaînement après le récit`,
-      jetons: [['cour', 'FIN DU DUO : José PART AVEC MICAËLA — ils sortent ENSEMBLE à COUR ➡ (paravent cour)']],
+      jetons: [['cour', 'FIN DU DUO : José PART AVEC MICAËLA — ils sortent ENSEMBLE à COUR ➡ (derrière les chœurs ou par le bas de l\'escalier, selon l\'installation)']],
       action: `<b>Don José</b> et <b>Micaëla</b> — duo <b>en liberté : les deux chanteurs improvisent</b>, ils savent ce qu'ils font. Seule contrainte : les gestes suivent le texte. <i>(Coupure : p.64 4ᵉ ligne 2ᵉ mesure → p.70 Allegro moderato)</i>`,
       jeu: [`📜 Les CADEAUX de la mère, donnés quand le texte les dit : <b>la lettre</b> · <b>un peu d'argent</b> (la bourse) · et <b>le baiser</b> confié par la mère (« Et puis ?… vraiment, je n'ose… »)`,
             `💺 Prévoir de quoi <b>s'asseoir</b> à des moments du duo (dans l'ancienne mise en scène, José était assis sur une chaise) — sinon : un genou à terre. À décider sur place`,
@@ -477,7 +493,7 @@
 
     { type: 'scene', num: 'N°8 — La bagarre et l\'arrestation 🪢', persos: ['zuniga', 'jose', 'carmen', 'narrateur'],
       quand: `José et Micaëla viennent de sortir — les cigarières déboulent : « Au secours ! Au secours ! N'entendez-vous pas ?… »`,
-      jetons: [['jardin', '⬅ ZUNIGA REVIENT et se place À JARDIN (gauche du public)'], ['cour', 'JOSÉ REVIENT À COUR (droite du public) sur « Au diable tout ce bavardage ! » ➡'], ['cour', '⚡ JOSÉ RAMÈNE CARMEN du public (si accès), à la corde — sinon depuis le bord de plateau côté cour']],
+      jetons: [['jardin', '⬅ ZUNIGA REVIENT et se place À JARDIN (gauche du public)'], ['cour', 'JOSÉ REVIENT À COUR (droite du public) sur « Au diable tout ce bavardage ! » ➡'], ['escalier', '🪜 JOSÉ RAMÈNE CARMEN du public par L\'ESCALIER, à la corde']],
       action: `La grande scène de la fin d'acte : la bagarre racontée par les chœurs, et l'arrestation de <b>Carmen</b> — <b>DEVANT et DANS le public</b>.`,
       jeu: [`<b>Zuniga</b> (même costume que Moralès — pas de changement, il reste le même) : il <b>montre du doigt vers le public</b>, met la main en visière au front, cherche à voir ce qui se passe là-bas`,
             `Pendant « C'est la Carmencita ! — Non, non, ce n'est pas elle ! » : <b>va-et-vient de jardin à cour</b>, perturbé — les deux camps du chœur le tirent à hue et à dia`,
@@ -497,14 +513,14 @@
 
     { type: 'scene', num: 'N°10 — Séguedille 🌹🪢', persos: ['carmen', 'jose', 'zuniga'],
       quand: `Zuniga vient de sortir à cour — José garde Carmen, attachée. Ils sont AU MILIEU de la scène`,
-      jetons: [['cour', '⚡ PENDANT LES APPLAUDISSEMENTS : ZUNIGA REVIENT À COUR ➡'], ['jardin', '⬅ CARMEN le voit… et S\'ENFUIT aussitôt À JARDIN (son paravent)']],
+      jetons: [['cour', '⚡ PENDANT LES APPLAUDISSEMENTS : ZUNIGA REVIENT À COUR ➡'], ['jardin', '⬅ CARMEN le voit… et S\'ENFUIT aussitôt À JARDIN (derrière les chœurs)']],
       action: `<b>Leur duo — comme pour Micaëla : ils improvisent, ils savent ce qu'ils font.</b> Le cadre seulement — et tout est marqué dans le chant.`,
       jeu: [`Carmen, toujours à la corde, commence à l'amadouer : « J'irai danser la séguedille »… « chez mon ami Lillas Pastia »… « on s'ennuie toute seule »… « mon amoureux » — <b>séduction MAXIMALE</b>`,
             `José s'énerve contre elle : « Tais-toi ! je t'avais dit de ne pas me parler » — ils font leur duo`,
             `🪢 <b>Liberté totale sur le jeu de la corde</b> — dans l'ancienne mise en scène, elle prenait la même corde et LE taquinait, le traînait un peu, <b>comme lui l'avait traînée au début</b> : à vous de choisir ce renversement`,
             `À un moment, il va à la corde et <b>LA DÉTACHE</b> — il se fait avoir, il tombe vraiment amoureux : « Près des remparts de Séville »… elle lui propose Lillas Pastia — c'est là qu'il la lâche`,
             `<b>FIN DE L'AIR → ON ATTEND LES APPLAUDISSEMENTS</b> — c'est prévu, on les laisse venir`,
-            `⚡ <b>PENDANT LES APPLAUDISSEMENTS</b> : Zuniga revient à COUR — Carmen le voit, il la voit → <b>elle S'ENFUIT aussitôt à JARDIN</b> (son paravent). José reste AU CENTRE, la corde vide dans les mains`,
+            `⚡ <b>PENDANT LES APPLAUDISSEMENTS</b> : Zuniga revient à COUR — Carmen le voit, il la voit → <b>elle S'ENFUIT aussitôt à JARDIN</b> (derrière les chœurs). José reste AU CENTRE, la corde vide dans les mains`,
             `🎙 <b>1ʳᵉ PHRASE DU NARRATEUR</b> (« Subjugué, Don José laisse volontairement échapper sa prisonnière et sera condamné à la prison pour cette faute ») — <b>et là TOUT VA VITE</b> : Zuniga, CHOQUÉ, va vers José, reprend <b>LA MÊME CORDE</b>, l'attache <b>mains dans le dos</b> (comme des menottes) et l'emmène <b>par le col, sortie À COUR</b> — rapide, sans traîner`,
             `⏱ Au besoin, le narrateur attend un instant que la sortie soit finie avant sa 2ᵉ phrase (à voir avec Jean-Christophe) — <b>« Deux mois plus tard… » se dit sur SCÈNE VIDE</b>`,
             `🎼 <b>PUIS LA MUSIQUE (orchestre seul) — PERSONNE ne sort pendant la musique</b> : elle joue sur scène vide et nous dépose chez Lillas Pastia — l'acte 2 peut commencer`],
@@ -572,10 +588,10 @@
 
     { type: 'scene', num: 'N°18 — Final de l\'acte 2 : la désertion 🧥', persos: ['carmen', 'jose', 'zuniga', 'frasquita', 'mercedes'],
       quand: `Le narrateur dit sa phrase TOUT DE SUITE après la musique — et tout se joue PENDANT cette phrase, très vite`,
-      jetons: [['cour', 'CARMEN RE-RENTRE aussitôt à COUR — ZUNIGA collé à elle, galant ➡'], ['jardin', '⬅ JOSÉ REVIENT DE JARDIN (son côté) et TRAVERSE À VUE : il surgit sur Zuniga']],
+      jetons: [['cour', 'CARMEN RE-RENTRE aussitôt à COUR — ZUNIGA collé à elle, galant ➡'], ['jardin', '⬅ JOSÉ a fait le tour derrière les chœurs : il SURGIT']],
       action: `La scène qui force la désertion — <b>rapide et violente</b>, puis le recrutement. Le Dancaïre est chanté par les ténors du chœur.`,
       jeu: [`🎙 PENDANT LA PHRASE DU NARRATEUR : <b>Carmen sort à peine… et RE-RENTRE aussitôt à cour, Zuniga tout proche d'elle</b>, qui l'embête un peu — on VOIT la scène que le texte raconte`,
-            `🔪 <b>JOSÉ REVIENT DE JARDIN (son côté), traverse à vue et attrape Zuniga par surprise</b> — Zuniga n'a d'yeux que pour Carmen, il ne le voit pas venir — <b>et SORT LA NAVAJA</b> devant lui — LE couteau, celui du « mettez-vous en garde » du N°23 ! — <b>Zuniga lève les mains</b> (« ça va, tout va bien… »)`,
+            `🔪 <b>JOSÉ ARRIVE PAR DERRIÈRE, attrape Zuniga… et SORT LA NAVAJA</b> devant lui — LE couteau, celui qui servira au « mettez-vous en garde » du N°23 ! — <b>Zuniga lève les mains</b> (« ça va, tout va bien… »)`,
             `Pendant la menace : <b>CARMEN S'ÉCHAPPE — côté JARDIN, à l'AVANT-SCÈNE : elle se retrouve À CÔTÉ DU NARRATEUR</b> et regarde la scène — la scène José-Zuniga se joue près des chœurs, vers l'arrière (point délicat : à travailler sur place au raccord)`,
             `🎵 PENDANT « <b>La guerre, c'est la guerre… En attendant, mon officier, passez devant sans vous faire prier</b> » : José le fait <b>MARCHER DEVANT LUI à la pointe de la navaja</b>, toute la traversée pendant que ça chante — et il l'emmène <b>À JARDIN</b>, derrière : on ne sait pas ce qui se passe derrière, on s'en fiche · 🎉 c'est la <b>DERNIÈRE apparition de Zuniga</b> — son rôle se termine là, et quelle sortie !`,
             `👔 En coulisses (<b>FAUSSE SORTIE</b> — il ressort aussitôt), <b>José ENLÈVE SA VESTE</b>, très vite — et <b>revient de jardin EN CHEMISE</b> : l'espace est là pour la suite`,
@@ -583,14 +599,14 @@
             `🧥 PENDANT ce passage : <b>Frasquita et Mercédès entrent avec LA CAPE NOIRE</b> (il ne les a pas encore vues) — et elles <b>LUI METTENT LA CAPE sur les épaules, l'aident à l'enfiler : IL EST DES LEURS</b> — le baptême du contrebandier`,
             `🏔 TOUS : « <b>Suis-nous à travers la campagne, viens avec nous dans la montagne</b>… la liberté ! la liberté ! » — le final de l'acte 2`,
             `📸 TABLEAU FINAL « la liberté ! » : <b>même système que sur le Toréador</b> — tout le monde SE RAPPROCHE au centre et chante FACE AU PUBLIC : <b>Carmen côté JARDIN, José AU MILIEU (avec la cape), Frasquita et Mercédès côté COUR</b> (schéma ci-dessous)`,
-            `😄 <b>ET ON NE PART PAS SAGEMENT</b> : dernier accord chanté, la musique continue → tous les quatre <b>SORTENT EN RIANT, ENSEMBLE, À VUE</b>, en bord de plateau vers <b>UN paravent</b> (côté cour) — la bande s'en va vers la vie errante. L'acte 2 se termine, ils quittent la taverne joyeusement !`,
-            `🎒 Accessoires : <b>LA CAPE NOIRE</b> (au paravent JARDIN, prête pour les filles) + 🔪 <b>LA NAVAJA de José</b> (couteau FACTICE — il la ressortira au duel du N°23)`],
-      fin: `FIN DE L'ACTE 2 : sortie de TOUS <b>EN RIANT</b>, ensemble, à vue vers le paravent, pendant que l'orchestre finit. Ensuite : <b>l'ENTRACTE</b> (le vrai).`,
+            `😄 <b>ET ON NE PART PAS SAGEMENT</b> : dernier accord chanté, la musique continue → tous les quatre <b>SORTENT EN RIANT</b>, descendent l'ESCALIER, passent <b>derrière le public</b> et filent <b>vers les loges</b> — la bande s'en va pour de vrai vers la vie errante, à travers le monde réel. Et c'est très juste : l'acte 2 se termine, ils quittent la taverne !`,
+            `🎒 Accessoires : <b>LA CAPE NOIRE</b> (prête en coulisses côté jardin pour les filles) + 🔪 <b>LA NAVAJA de José</b> (couteau de théâtre FACTICE — il la ressortira au duel du N°23, face à celle d'Escamillo)`],
+      fin: `FIN DE L'ACTE 2 : sortie de TOUS <b>EN RIANT</b>, par l'escalier → derrière le public → les loges, pendant que l'orchestre finit. Ensuite : <b>l'ENTRACTE</b> (le vrai).`,
       plan: 'n18', plan2: 'n18b', plan3: 'n18fin', note: 'n18' },
 
     { type: 'acte', titre: '🍷 ENTRACTE — le vrai, avec pause (juste après la sortie en riant)' },
 
-    { type: 'info', texte: `<b>Pendant l'entracte (hors jeu)</b> : chacun rejoint tranquillement les paravents / les tentes. <b>Zuniga (rôle terminé 🎉)</b> peut se changer. Avant la reprise, chacun se replace <b>de SON côté</b> (cour ou jardin) selon son entrée de l'acte 3 — plus de passage possible d'un côté à l'autre en coulisse, on s'organise en conséquence.`, note: 'entracte' },
+    { type: 'info', texte: `<b>Pendant l'entracte (hors jeu)</b> : les quatre de la fin d'acte 2 — <b>Carmen, Don José, Frasquita, Mercédès</b> — arrivent par le public directement à la loge (il y en aurait une : emplacement exact à repérer sur place — sinon, repli à côté de l'escalier, comme prévu). En coulisses derrière les chœurs il reste <b>Escamillo, Zuniga (rôle terminé 🎉) et Micaëla</b> — qui peuvent rejoindre les autres pour se désaltérer. Avant la reprise : <b>tout le monde se remet en place dans les coulisses, comme au début de l'acte 1</b>.`, note: 'entracte' },
 
     { type: 'acte', titre: '🎼 ORCHESTRE seul (pas de mise en scène, personne en scène) — puis ACTE 3', note: 'orch3' },
 
@@ -649,21 +665,22 @@
             `⚡ <b>CARMEN ARRIVE DE JARDIN — Escamillo LA VOIT et se déconcentre</b>, le couteau à la main → <b>José en profite pour venir le trucider → Escamillo LUI TIENT LE BRAS</b> pour l'empêcher — et Carmen crie : <b>« Holà ! holà ! José ! » — ELLE S'INTERPOSE devant eux</b>`,
             `👥 Sur « Holà ! » : <b>Frasquita et Mercédès arrivent de jardin ensemble</b> — tout le monde est là`,
             `💘 « <b>J'ai l'âme ravie que ce soit vous, Carmen, qui me sauviez la vie</b> » — Escamillo la REGARDE très, très fort (pas de caresse — il y a une coupure ici). <b>José le fixe, prêt à se battre encore — Carmen fait un geste : « ça suffit ! »</b>`,
-            `🎶 <b>SORTIE D'ESCAMILLO, devant tout le monde, à COUR (son côté — son paravent)</b> : c'est là qu'il restera, et c'est là que Carmen le rejoindra au N°24. Sa reprise (« Toréador, en garde… l'amour t'attend ») se chante <b>depuis le paravent cour</b> — la voix au loin, pendant que José l'entend…`],
-      fin: `Escamillo parti à cour (son côté) — sur scène : Carmen entre José et les filles. Carmen à José : « Va-t'en, va-t'en, tu ferais bien… notre métier ne te vaut rien. » La suite = N°24.`,
+            `🎶 <b>SORTIE D'ESCAMILLO, devant tout le monde : à COUR — puis il fait LE TOUR derrière les chœurs jusqu'à JARDIN</b> (la coulisse cachée) : c'est là que Carmen viendra le retrouver au N°24. Sa reprise (« Toréador, en garde… l'amour t'attend ») se chante <b>depuis les coulisses</b> — la voix au loin, pendant que José l'entend…`],
+      fin: `Escamillo parti (le tour vers jardin) — sur scène : Carmen entre José et les filles. Carmen à José : « Va-t'en, va-t'en, tu ferais bien… notre métier ne te vaut rien. » La suite = N°24.`,
       plan: 'n23', plan2: 'n23b', plan3: 'n23fin', note: 'n23' },
 
     { type: 'alerte', texte: `📋 LA SUITE (N°24 → FINAL) EST MONTÉE EN PREMIÈRE VERSION COMPLÈTE<br><span style="font-weight:normal;font-size:0.95rem;">Tout est écrit ci-dessous — on cale les derniers détails ensemble sur place, aux balances.</span>` },
 
     { type: 'scene', num: 'N°24 — Final de l\'acte 3 : Micaëla découverte 💔', persos: ['micaela', 'jose', 'carmen', 'frasquita', 'mercedes'],
       quand: `Enchaînement après le duel`,
-      jetons: [['cour', '⚡ MICAËLA sort de sa cachette (paravent COUR) · ESCAMILLO + CARMEN partent à COUR ➡'], ['jardin', '⬅ JOSÉ part à JARDIN avec MICAËLA (côté opposé)']],
-      action: `On découvre <b>Micaëla</b> — elle supplie José : <b>« ta mère se meurt »</b>. Le grand déchirement de l'acte 3. <b>Les amants partent d'un côté (cour), José est arraché de l'autre (jardin).</b>`,
-      jeu: [`👁 <b>MICAËLA est DÉCOUVERTE</b> — elle sort de sa cachette (paravent COUR) : elle supplie José de la suivre — « ta mère… »`,
+      jetons: [['cour', '⚡ MICAËLA sort de sa cachette (coulisses côté cour) ➡']],
+      action: `On découvre <b>Micaëla</b> — elle supplie José : <b>« ta mère se meurt »</b>. Le grand déchirement de l'acte 3.`,
+      jeu: [`👁 <b>MICAËLA est DÉCOUVERTE</b> — elle sort de sa cachette (coulisses côté cour) : elle supplie José de la suivre — « ta mère… »`,
             `💔 Carmen à José : « <b>Va-t'en, va-t'en, tu ferais bien… notre métier ne te vaut rien</b> » — José déchiré entre la jalousie et sa mère`,
-            `🎶 SUR « L'AMOUR T'ATTEND » : <b>ESCAMILLO réapparaît / chante depuis le PARAVENT COUR</b> (« Toréador, en garde… l'amour t'attend ») — <b>Carmen va à lui, il LA PREND DANS SES BRAS et ils sortent ENSEMBLE à COUR</b>. José entend la voix et comprend tout`,
-            `⚡ Au même moment, à l'OPPOSÉ : <b>José part à JARDIN avec MICAËLA</b> (« Tu seras contente… ») — <b>on ne se croise pas</b> : les amants à cour, José arraché à jardin, chacun de son côté`,
-            `<b>Frasquita et Mercédès sortent à COUR</b> (avec le couple — elles seront côté cour pour la fête de l'acte 4)`],
+            `🎶 SUR « NOUS NOUS REVERRONS » : <b>ESCAMILLO RENTRE TOUT DE SUITE À COUR en chantant « Toréador, en garde »</b> — et il <b>PASSE ENTRE LE CHŒUR ET L'ORCHESTRE</b>, à vue, comme à Rousset (⚠️ SI la place existe — à vérifier sur place ; sinon, il chante depuis les coulisses comme prévu)`,
+            `⚡ Pendant ce temps, <b>José part à COUR avec MICAËLA</b> (« Tu seras contente… ») — <b>SANS SE CROISER</b> avec Escamillo : lui est dans le passage, eux sortent par la coulisse`,
+            `❤ <b>CARMEN part à JARDIN</b> — et au bout du passage, sur <b>« L'AMOUR T'ATTEND »</b>, ils se voient (sans que ce soit fait exprès), <b>il la prend dans ses bras et ils partent ensemble</b>`,
+            `Frasquita et Mercédès sortent aussi à JARDIN`],
       fin: `Scène vide. ORCHESTRE seul, puis l'acte 4 : le jour des arènes.`,
       plan: 'n24', note: 'n24' },
 
@@ -785,7 +802,7 @@
       `<b>N°10 Séguedille</b> — votre duo, en liberté avec Valentin, au MILIEU de la scène : toujours à la corde, l'amadouer (« J'irai danser la séguedille… chez mon ami Lillas Pastia… mon amoureux ») — <b>séduction MAXIMALE</b> · liberté sur le jeu de la corde (le taquiner, le traîner un peu — comme lui t'a traînée) · il te détache · FIN DE L'AIR → APPLAUDISSEMENTS → tu VOIS Zuniga revenir à cour : <b>t'enfuir À JARDIN</b> (derrière les chœurs), tout de suite`,
       `<b>N°12</b> — Chanson bohème · <b>N°14</b> — en scène`,
       `<b>N°17</b> — duo avec José · <b>N°18</b> — final · <b>N°19-20</b> — les cartes`,
-      `<b>N°24</b> — final acte 3 · <b>N°26</b> — la fête avec Escamillo (entrée à cour) · <b>N°27</b> — le drame`
+      `<b>N°24</b> — final acte 3 · <b>N°26</b> — cortège avec Escamillo par l'escalier · <b>N°27</b> — le drame`
     ],
     jose: [
       `<b>N°5, 2ᵉ couplet</b> — PREMIÈRE APPARITION : entrer SEUL à COUR sur « L'oiseau que tu croyais surprendre ». Soldat de service : surveiller la foule, NE PAS la regarder`,
@@ -808,10 +825,10 @@
       `<b>N°24</b> — final acte 3`
     ],
     escamillo: [
-      `<b>N°14</b> — l'annonce du narrateur te prépare → entrer À COUR (en montant d'un pas sur l'estrade), arrivée triomphale « de la ville »`,
+      `<b>N°14</b> — l'annonce du narrateur te prépare → entrer par l'ESCALIER À COUR, arrivée triomphale « de la ville »`,
       `<b>N°23</b> — surgir à COUR (le chapeau : pas de vrai trou)`,
       `<b>N°24</b> — final acte 3`,
-      `<b>N°26</b> — la fête : tu entres à COUR avec Carmen, bras dessus bras dessous — la parade`
+      `<b>N°26</b> — le cortège avec Carmen par l'ESCALIER — la parade`
     ],
     zuniga: [
       `<b>N°1 (Moralès)</b> — PREMIÈRE ENTRÉE DU SPECTACLE. TOP : le chœur attaque « Sur la place » → surgir à COUR, traverser avec dédain, se placer à JARDIN`,
@@ -886,12 +903,12 @@
     n14fin: `📸 LE TABLEAU FINAL — tous au centre, face au public`,
     n18: `1️⃣ JOSÉ SURGIT 🔪 — et il emmène Zuniga à jardin (fausse sortie de José)`,
     n18b: `2️⃣ JOSÉ REVIENT EN CHEMISE — « Es-tu des nôtres ? » + la cape des filles`,
-    n18fin: `3️⃣ 📸 TABLEAU FINAL « la liberté ! » — puis TOUS sortent EN RIANT, ensemble, à vue (vers un paravent)`,
+    n18fin: `3️⃣ 📸 TABLEAU FINAL « la liberté ! » — puis TOUS sortent par l'escalier`,
     n19: `1️⃣ LES ENTRÉES — José puis Carmen à cour, Frasquita et Mercédès à jardin`,
     n19fin: `2️⃣ 📸 « Écoute, compagnon » EN LIGNE — puis la main devant : José part, les deux filent à cour`,
     n23: `1️⃣ FACE À FACE — Escamillo entre à cour, José revient de jardin (Micaëla reste cachée)`,
     n23b: `2️⃣ 🐂 LA CORRIDA — les passes : à chaque attaque de José, Escamillo tourne et ils échangent les côtés`,
-    n23fin: `3️⃣ « HOLÀ ! » — Carmen s'interpose, les filles arrivent — puis Escamillo sort à cour (son côté)`,
+    n23fin: `3️⃣ « HOLÀ ! » — Carmen s'interpose, les filles arrivent — puis Escamillo sort et fait le tour vers jardin`,
     n24: `LES SORTIES — José part à cour avec Micaëla, Carmen rejoint Escamillo à jardin`
   };
   // Personnages postés (immobiles, sans flèche) sur la plateforme
@@ -1222,7 +1239,7 @@
         <div style="font-style:italic; color:#6b5a48; margin-bottom:4px;">${modeFeuille === 'cartes' ? 'Ton parcours, moment par moment — touche « Suivant » :' : 'Ta feuille complète, dans l\'ordre du spectacle :'}</div>
         ${corps}
         <div style="background:#fff3cd; border:2px solid #b8860b; border-radius:10px; padding:8px 12px; margin-top:12px; font-size:0.95rem;">
-          🚪 <b>À SEILLONS :</b> on reste de SON côté (jardin ou cour, notre paravent) — pas de passage derrière, pas d'escalier (estrade basse, un pas). Les passages « public » : à confirmer aux balances.
+          🚪 <b>À SEILLONS :</b> vraies sorties à JARDIN et à COUR. Les anciens « tours derrière les chœurs » = passer <b>derrière la scène</b>. Les passages « escalier / public » : à confirmer aux balances.
         </div>
         <button id="btn-details" onclick="basculerDetails()">${detailsVisibles ? '✖ Masquer le déroulé' : '📜 Voir le déroulé en entier'}</button>
       </div>`;

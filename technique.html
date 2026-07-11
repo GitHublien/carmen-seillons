@@ -41,6 +41,9 @@
   }
   @media print {
     #lecteurs, .audio-bloc, audio, #titre-musiques, #cadre-musiques { display: none !important; }
+    tr, .cadre, li, img { break-inside: avoid !important; page-break-inside: avoid !important; }
+    h1, h2 { break-after: avoid !important; page-break-after: avoid !important; }
+    thead { display: table-header-group; }
     html, body { background: #fff; color: #000; }
     .cadre, td { background: #fff; color: #000; box-shadow: none; }
     tr.narration td { background: #eaffea; color: #000; }
@@ -61,7 +64,7 @@
 <main>
 
   <div class="cadre c-vert">
-    <b>LE PRINCIPE EN 30 SECONDES.</b> Carmen racontée par un <b>narrateur</b> (8 interventions parlées, toujours collées à la musique) et jouée par <b>7 solistes équipés de MICRO-CASQUES (7 micro-casques)</b>, qui évoluent <b>DEVANT l'orchestre, en front de scène</b>. Le chœur est au fond. Les solistes entrent et sortent <b>par les coulisses, à cour et à jardin</b> — et certains trajets sont prévus <b>dans le public</b> si l'accès existe (à décider ensemble aux balances).
+    <b>LE PRINCIPE EN 30 SECONDES.</b> Carmen racontée par un <b>narrateur</b> (8 interventions parlées, toujours collées à la musique) et jouée par <b>7 solistes sonorisés en <b>4 micro-casques + 2 micro-cravates</b></b> (6 micros pour 7 rôles → il faudra gérer le partage ; les cravates sont plus difficiles à changer), qui évoluent <b>DEVANT l'orchestre, en front de scène</b>. ⚠️ <b>Contrainte plateau : on ne peut PAS passer derrière la scène</b> — chaque soliste reste de SON côté (paravent cour ou jardin), pas de traversée en coulisse. Le chœur est au fond. Les solistes entrent et sortent <b>par les coulisses, à cour et à jardin</b> — et certains trajets sont prévus <b>dans le public</b> si l'accès existe (à décider ensemble aux balances).
   </div>
 
   <img src="schemas/schema-dispositif.jpg" alt="Le dispositif scénique" style="width:100%; display:block; border-radius:12px; border:2px solid #00e5ff; box-shadow:0 0 12px rgba(0,229,255,0.3); margin:14px 0;" onerror="this.remove()">
